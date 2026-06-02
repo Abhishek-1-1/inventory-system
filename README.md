@@ -25,8 +25,11 @@ This project is fully containerized. You do not need Python, Node, or PostgreSQL
 
 2. **Start the application:**
    cd inventory-system
+   
    docker compose up --build
 
-3. **Access the services:**
+4. **Access the services:**
+   
    Frontend UI: http://localhost:3000
+   
    Backend API Docs (Swagger): http://localhost:8000/docs
