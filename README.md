@@ -22,4 +22,11 @@ This project is fully containerized. You do not need Python, Node, or PostgreSQL
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/Abhishek-1-1/inventory-system.git
+
+2. **Start the application:**
    cd inventory-system
+   docker compose up --build
+
+3. **Access the services:**
+   Frontend UI: http://localhost:3000
+   Backend API Docs (Swagger): http://localhost:8000/docs
