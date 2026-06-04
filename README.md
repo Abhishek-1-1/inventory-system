@@ -33,3 +33,10 @@ This project is fully containerized. You do not need Python, Node, or PostgreSQL
    Frontend UI: http://localhost:3000
    
    Backend API Docs (Swagger): http://localhost:8000/docs
+
+**----------------------------------------------------------------------------------------------------------------------------------**
+   **If backend service i.e (http://localhost:8000/docs) still not working then follow one of the step from below steps**
+      **1.  rerun this command -> docker compose up --build**
+                    **OR**
+      **2. check in docker desktop and start backend container again manually**
+      
