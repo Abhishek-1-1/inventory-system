@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
@@ -9,15 +9,8 @@ export default function App() {
   const [orders, setOrders] = useState([]);
   const [message, setMessage] = useState({ text: '', type: '' });
 
-  // Wrap showMessage in useCallback to ensure stability
-  const showMessage = useCallback((text, type) => {
-    setMessage({ text, type });
-    setTimeout(() => setMessage({ text: '', type: '' }), 3000);
-  }, []);
-
   // --- Fetch Data ---
-  // Wrap fetchData in useCallback and include its dependency
-  const fetchData = useCallback(async () => {
+  const fetchData = async () => {
     try {
       const [prodRes, custRes, ordRes] = await Promise.all([
         fetch(`${API_URL}/products`),
@@ -30,12 +23,16 @@ export default function App() {
     } catch (err) {
       showMessage("Failed to connect to the server.", "error");
     }
-  }, [showMessage]);
+  };
 
-  // Include fetchData safely in the dependency array
   useEffect(() => {
     fetchData();
-  }, [activeTab, fetchData]); // Refresh data when switching tabs
+  }, [activeTab]); // Refresh data when switching tabs
+
+  const showMessage = (text, type) => {
+    setMessage({ text, type });
+    setTimeout(() => setMessage({ text: '', type: '' }), 3000);
+  };
 
   // --- UI Shell & Navigation ---
   return (
